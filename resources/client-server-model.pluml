@@ -1,0 +1,297 @@
+@startuml
+
+left to right direction
+
+class clientServerConfiguration.client.SenderRequestProvidedPort {
+}
+class clientServerConfiguration.client.ClientRequiredInterface {
++ Message createAccount(String)
++ Message depositMoney(String,double)
++ Message withdrawMoney(String,double)
+}
+class clientServerConfiguration.client.ClientProvidedInterface {
++ void createAccount(String)
++ void depositMoney(String,double)
++ void withdrawMoney(String,double)
+}
+class clientServerConfiguration.client.SenderRequestRequiredPort {
++ Message transfer(Message)
+}
+class clientServerConfiguration.rpc.RPCGlue {
++ Message transfer(Message)
+}
+class clientServerConfiguration.rpc.RPCRoleFrom {
++ Message transfer(Message)
+}
+class clientServerConfiguration.rpc.RPCRoleTo {
++ Message transfer(Message)
+}
+class clientServerConfiguration.rpc.RPCFromInterface {
++ Message transfer(Message)
+}
+class clientServerConfiguration.rpc.RPCToInterface {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.SecurityAutentificationToInterface {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.ReceiverRequestRequiredPort {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.database.DatabaseComponent {
+}
+class clientServerConfiguration.server.serverDetailConfiguration.CheckQueryConnector {
+}
+class clientServerConfiguration.server.serverDetailConfiguration.securityManager.SecurityAutentificationProvidedPort {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.SecurityCheckFromInterface {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.securityManager.SecurityManagerComponent {
+}
+class clientServerConfiguration.server.serverDetailConfiguration.QueryInterrogationRoleFrom {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.CheckQueryRoleFrom {
+}
+class clientServerConfiguration.server.serverDetailConfiguration.QueryInterrogationFromInterface {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.SecurityAutentificationRoleTo {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.SecurityAutentificationConnector {
+}
+class clientServerConfiguration.server.serverDetailConfiguration.SecurityAutentificationGlue {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.SecurityManagementToInterface {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.SecurityCheckRoleTo {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.DatabaseQueryConnector {
+}
+class clientServerConfiguration.server.serverDetailConfiguration.SecurityManagementConnector {
+}
+class clientServerConfiguration.server.serverDetailConfiguration.connectionManager.ConnectionManagerRequiredInterface {
++ Message createAccount(Message)
++ Message depositMoney(Message)
++ Message withdrawMoney(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.database.QueryInterrogationProvidedPort {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.securityManager.SecurityCheckRequiredPort {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.QueryInterrogationToInterface {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.ReceiverRequestProvidedPort {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.DatabaseQueryRoleFrom {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.database.DatabaseProvidedInterface {
++ Message isFreeAccount(Message)
++ Message hasAccount(Message)
++ Message hasMoney(Message)
++ Message registerAccount(Message)
++ Message addToBalance(Message)
++ Message removeFromBalance(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.securityManager.CheckQueryProvidedPort {
+}
+class clientServerConfiguration.server.serverDetailConfiguration.SecurityManagementGlue {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.SecurityAutentificationRoleFrom {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.QueryInterrogationGlue {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.connectionManager.DatabaseQueryProvidedPort {
+}
+class clientServerConfiguration.server.serverDetailConfiguration.securityManager.SecurityManagementRequiredPort {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.SecurityCheckRoleFrom {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.connectionManager.SecurityCheckProvidedPort {
+}
+class clientServerConfiguration.server.serverDetailConfiguration.connectionManager.QueryInterrogationRequiredPort {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.DatabaseQueryFromInterface {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.DatabaseQueryGlue {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.database.SecurityManagementProvidedPort {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.connectionManager.ConnectionManagerProvidedInterface {
++ Message createAccount(Message)
++ Message depositMoney(Message)
++ Message withdrawMoney(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.database.CheckQueryRequiredPort {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.CheckQueryRoleTo {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.QueryInterrogationRoleTo {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.SecurityCheckGlue {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.CheckQueryToInterface {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.database.DatabaseRequiredInterface {
++ Message isFreeAccount(Message)
++ Message hasAccount(Message)
++ Message hasMoney(Message)
++ Message registerAccount(Message)
++ Message addToBalance(Message)
++ Message removeFromBalance(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.SecurityManagementFromInterface {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.securityManager.SecurityManagerRequiredInterface {
++ Message canCreateAccount(Message)
++ Message canDepositMoney(Message)
++ Message canWithdrawMoney(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.SecurityManagementRoleFrom {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.SecurityCheckConnector {
+}
+class clientServerConfiguration.server.serverDetailConfiguration.SecurityManagementRoleTo {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.SecurityAutentificationFromInterface {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.ServerProvidedInterface {
+}
+class clientServerConfiguration.server.serverDetailConfiguration.CheckQueryFromInterface {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.database.DatabaseQueryRequiredPort {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.SecurityCheckToInterface {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.DatabaseQueryToInterface {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.connectionManager.ExternalSocketProvidedPort {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.ServerDetailInterface {
+}
+class clientServerConfiguration.server.serverDetailConfiguration.securityManager.SecurityManagerProvidedInterface {
++ Message canCreateAccount(Message)
++ Message canDepositMoney(Message)
++ Message canWithdrawMoney(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.QueryInterrogationConnector {
+}
+class clientServerConfiguration.server.serverDetailConfiguration.DatabaseQueryRoleTo {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.CheckQueryGlue {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.connectionManager.SecurityAutentificationRequiredPort {
++ Message transfer(Message)
+}
+class clientServerConfiguration.server.serverDetailConfiguration.connectionManager.ConnectionManagerComponent {
+}
+clientServerConfiguration.client.ClientProvidedInterface "providedPorts" *-- clientServerConfiguration.client.SenderRequestProvidedPort
+clientServerConfiguration.client.ClientRequiredInterface "requiredPorts" *-- clientServerConfiguration.client.SenderRequestRequiredPort
+clientServerConfiguration.client.SenderRequestRequiredPort "attachement" --> clientServerConfiguration.rpc.RPCRoleTo
+clientServerConfiguration.rpc.RPCFromInterface "fromRoles" *-- clientServerConfiguration.rpc.RPCRoleFrom
+clientServerConfiguration.rpc.RPCGlue "fromInterface" --> clientServerConfiguration.rpc.RPCFromInterface
+clientServerConfiguration.rpc.RPCGlue "toInterface" --> clientServerConfiguration.rpc.RPCToInterface
+clientServerConfiguration.rpc.RPCToInterface "toRoles" *-- clientServerConfiguration.rpc.RPCRoleTo
+clientServerConfiguration.rpc.RPCRoleFrom "attachement" --> clientServerConfiguration.server.ReceiverRequestProvidedPort
+clientServerConfiguration.server.serverDetailConfiguration.connectionManager.ConnectionManagerComponent "providedInterface" --> clientServerConfiguration.server.serverDetailConfiguration.connectionManager.ConnectionManagerProvidedInterface
+clientServerConfiguration.server.serverDetailConfiguration.connectionManager.ConnectionManagerComponent "requiredInterface" --> clientServerConfiguration.server.serverDetailConfiguration.connectionManager.ConnectionManagerRequiredInterface
+clientServerConfiguration.server.serverDetailConfiguration.connectionManager.ConnectionManagerProvidedInterface "providedPorts" *-- clientServerConfiguration.server.serverDetailConfiguration.connectionManager.DatabaseQueryProvidedPort
+clientServerConfiguration.server.serverDetailConfiguration.connectionManager.ConnectionManagerProvidedInterface "providedPorts" *-- clientServerConfiguration.server.serverDetailConfiguration.connectionManager.ExternalSocketProvidedPort
+clientServerConfiguration.server.serverDetailConfiguration.connectionManager.ConnectionManagerProvidedInterface "providedPorts" *-- clientServerConfiguration.server.serverDetailConfiguration.connectionManager.SecurityCheckProvidedPort
+clientServerConfiguration.server.serverDetailConfiguration.connectionManager.ConnectionManagerRequiredInterface "requiredPorts" *-- clientServerConfiguration.server.serverDetailConfiguration.connectionManager.QueryInterrogationRequiredPort
+clientServerConfiguration.server.serverDetailConfiguration.connectionManager.ConnectionManagerRequiredInterface "requiredPorts" *-- clientServerConfiguration.server.serverDetailConfiguration.connectionManager.SecurityAutentificationRequiredPort
+clientServerConfiguration.server.serverDetailConfiguration.connectionManager.QueryInterrogationRequiredPort "attachement" --> clientServerConfiguration.server.serverDetailConfiguration.QueryInterrogationRoleTo
+clientServerConfiguration.server.serverDetailConfiguration.connectionManager.SecurityAutentificationRequiredPort "attachement" --> clientServerConfiguration.server.serverDetailConfiguration.SecurityAutentificationRoleTo
+clientServerConfiguration.server.serverDetailConfiguration.database.DatabaseComponent "providedInterface" --> clientServerConfiguration.server.serverDetailConfiguration.database.DatabaseProvidedInterface
+clientServerConfiguration.server.serverDetailConfiguration.database.DatabaseComponent "requiredInterface" --> clientServerConfiguration.server.serverDetailConfiguration.database.DatabaseRequiredInterface
+clientServerConfiguration.server.serverDetailConfiguration.database.DatabaseProvidedInterface "providedPorts" *-- clientServerConfiguration.server.serverDetailConfiguration.database.QueryInterrogationProvidedPort
+clientServerConfiguration.server.serverDetailConfiguration.database.DatabaseProvidedInterface "providedPorts" *-- clientServerConfiguration.server.serverDetailConfiguration.database.SecurityManagementProvidedPort
+clientServerConfiguration.server.serverDetailConfiguration.database.DatabaseRequiredInterface "requiredPorts" *-- clientServerConfiguration.server.serverDetailConfiguration.database.CheckQueryRequiredPort
+clientServerConfiguration.server.serverDetailConfiguration.database.DatabaseRequiredInterface "requiredPorts" *-- clientServerConfiguration.server.serverDetailConfiguration.database.DatabaseQueryRequiredPort
+clientServerConfiguration.server.serverDetailConfiguration.database.CheckQueryRequiredPort "attachement" --> clientServerConfiguration.server.serverDetailConfiguration.CheckQueryRoleTo
+clientServerConfiguration.server.serverDetailConfiguration.database.DatabaseQueryRequiredPort "attachement" --> clientServerConfiguration.server.serverDetailConfiguration.DatabaseQueryRoleTo
+clientServerConfiguration.server.serverDetailConfiguration.securityManager.SecurityManagerComponent "providedInterface" --> clientServerConfiguration.server.serverDetailConfiguration.securityManager.SecurityManagerProvidedInterface
+clientServerConfiguration.server.serverDetailConfiguration.securityManager.SecurityManagerComponent "requiredInterface" --> clientServerConfiguration.server.serverDetailConfiguration.securityManager.SecurityManagerRequiredInterface
+clientServerConfiguration.server.serverDetailConfiguration.securityManager.SecurityManagerProvidedInterface "providedPorts" *-- clientServerConfiguration.server.serverDetailConfiguration.securityManager.CheckQueryProvidedPort
+clientServerConfiguration.server.serverDetailConfiguration.securityManager.SecurityManagerProvidedInterface "providedPorts" *-- clientServerConfiguration.server.serverDetailConfiguration.securityManager.SecurityAutentificationProvidedPort
+clientServerConfiguration.server.serverDetailConfiguration.securityManager.SecurityManagerRequiredInterface "requiredPorts" *-- clientServerConfiguration.server.serverDetailConfiguration.securityManager.SecurityCheckRequiredPort
+clientServerConfiguration.server.serverDetailConfiguration.securityManager.SecurityManagerRequiredInterface "requiredPorts" *-- clientServerConfiguration.server.serverDetailConfiguration.securityManager.SecurityManagementRequiredPort
+clientServerConfiguration.server.serverDetailConfiguration.securityManager.SecurityCheckRequiredPort "attachement" --> clientServerConfiguration.server.serverDetailConfiguration.SecurityCheckRoleTo
+clientServerConfiguration.server.serverDetailConfiguration.securityManager.SecurityManagementRequiredPort "attachement" --> clientServerConfiguration.server.serverDetailConfiguration.SecurityManagementRoleTo
+clientServerConfiguration.server.serverDetailConfiguration.CheckQueryConnector "glue" --> clientServerConfiguration.server.serverDetailConfiguration.CheckQueryGlue
+clientServerConfiguration.server.serverDetailConfiguration.CheckQueryFromInterface "fromRoles" *-- clientServerConfiguration.server.serverDetailConfiguration.CheckQueryRoleFrom
+clientServerConfiguration.server.serverDetailConfiguration.CheckQueryGlue "fromInterface" --> clientServerConfiguration.server.serverDetailConfiguration.CheckQueryFromInterface
+clientServerConfiguration.server.serverDetailConfiguration.CheckQueryGlue "toInterface" --> clientServerConfiguration.server.serverDetailConfiguration.CheckQueryToInterface
+clientServerConfiguration.server.serverDetailConfiguration.CheckQueryToInterface "toRoles" *-- clientServerConfiguration.server.serverDetailConfiguration.CheckQueryRoleTo
+clientServerConfiguration.server.serverDetailConfiguration.CheckQueryRoleFrom "attachement" --> clientServerConfiguration.server.serverDetailConfiguration.securityManager.CheckQueryProvidedPort
+clientServerConfiguration.server.serverDetailConfiguration.DatabaseQueryConnector "glue" --> clientServerConfiguration.server.serverDetailConfiguration.DatabaseQueryGlue
+clientServerConfiguration.server.serverDetailConfiguration.DatabaseQueryFromInterface "fromRoles" *-- clientServerConfiguration.server.serverDetailConfiguration.DatabaseQueryRoleFrom
+clientServerConfiguration.server.serverDetailConfiguration.DatabaseQueryGlue "fromInterface" --> clientServerConfiguration.server.serverDetailConfiguration.DatabaseQueryFromInterface
+clientServerConfiguration.server.serverDetailConfiguration.DatabaseQueryGlue "toInterface" --> clientServerConfiguration.server.serverDetailConfiguration.DatabaseQueryToInterface
+clientServerConfiguration.server.serverDetailConfiguration.DatabaseQueryToInterface "toRoles" *-- clientServerConfiguration.server.serverDetailConfiguration.DatabaseQueryRoleTo
+clientServerConfiguration.server.serverDetailConfiguration.DatabaseQueryRoleFrom "attachement" --> clientServerConfiguration.server.serverDetailConfiguration.connectionManager.DatabaseQueryProvidedPort
+clientServerConfiguration.server.serverDetailConfiguration.QueryInterrogationConnector "glue" --> clientServerConfiguration.server.serverDetailConfiguration.QueryInterrogationGlue
+clientServerConfiguration.server.serverDetailConfiguration.QueryInterrogationFromInterface "fromRoles" *-- clientServerConfiguration.server.serverDetailConfiguration.QueryInterrogationRoleFrom
+clientServerConfiguration.server.serverDetailConfiguration.QueryInterrogationGlue "fromInterface" --> clientServerConfiguration.server.serverDetailConfiguration.QueryInterrogationFromInterface
+clientServerConfiguration.server.serverDetailConfiguration.QueryInterrogationGlue "toInterface" --> clientServerConfiguration.server.serverDetailConfiguration.QueryInterrogationToInterface
+clientServerConfiguration.server.serverDetailConfiguration.QueryInterrogationToInterface "toRoles" *-- clientServerConfiguration.server.serverDetailConfiguration.QueryInterrogationRoleTo
+clientServerConfiguration.server.serverDetailConfiguration.QueryInterrogationRoleFrom "attachement" --> clientServerConfiguration.server.serverDetailConfiguration.database.QueryInterrogationProvidedPort
+clientServerConfiguration.server.serverDetailConfiguration.SecurityAutentificationConnector "glue" --> clientServerConfiguration.server.serverDetailConfiguration.SecurityAutentificationGlue
+clientServerConfiguration.server.serverDetailConfiguration.SecurityAutentificationFromInterface "fromRoles" *-- clientServerConfiguration.server.serverDetailConfiguration.SecurityAutentificationRoleFrom
+clientServerConfiguration.server.serverDetailConfiguration.SecurityAutentificationGlue "fromInterface" --> clientServerConfiguration.server.serverDetailConfiguration.SecurityAutentificationFromInterface
+clientServerConfiguration.server.serverDetailConfiguration.SecurityAutentificationGlue "toInterface" --> clientServerConfiguration.server.serverDetailConfiguration.SecurityAutentificationToInterface
+clientServerConfiguration.server.serverDetailConfiguration.SecurityAutentificationToInterface "toRoles" *-- clientServerConfiguration.server.serverDetailConfiguration.SecurityAutentificationRoleTo
+clientServerConfiguration.server.serverDetailConfiguration.SecurityAutentificationRoleFrom "attachement" --> clientServerConfiguration.server.serverDetailConfiguration.securityManager.SecurityAutentificationProvidedPort
+clientServerConfiguration.server.serverDetailConfiguration.SecurityCheckConnector "glue" --> clientServerConfiguration.server.serverDetailConfiguration.SecurityCheckGlue
+clientServerConfiguration.server.serverDetailConfiguration.SecurityCheckFromInterface "fromRoles" *-- clientServerConfiguration.server.serverDetailConfiguration.SecurityCheckRoleFrom
+clientServerConfiguration.server.serverDetailConfiguration.SecurityCheckGlue "fromInterface" --> clientServerConfiguration.server.serverDetailConfiguration.SecurityCheckFromInterface
+clientServerConfiguration.server.serverDetailConfiguration.SecurityCheckGlue "toInterface" --> clientServerConfiguration.server.serverDetailConfiguration.SecurityCheckToInterface
+clientServerConfiguration.server.serverDetailConfiguration.SecurityCheckToInterface "toRoles" *-- clientServerConfiguration.server.serverDetailConfiguration.SecurityCheckRoleTo
+clientServerConfiguration.server.serverDetailConfiguration.SecurityCheckRoleFrom "attachement" --> clientServerConfiguration.server.serverDetailConfiguration.connectionManager.SecurityCheckProvidedPort
+clientServerConfiguration.server.serverDetailConfiguration.SecurityManagementConnector "glue" --> clientServerConfiguration.server.serverDetailConfiguration.SecurityManagementGlue
+clientServerConfiguration.server.serverDetailConfiguration.SecurityManagementFromInterface "fromRoles" *-- clientServerConfiguration.server.serverDetailConfiguration.SecurityManagementRoleFrom
+clientServerConfiguration.server.serverDetailConfiguration.SecurityManagementGlue "fromInterface" --> clientServerConfiguration.server.serverDetailConfiguration.SecurityManagementFromInterface
+clientServerConfiguration.server.serverDetailConfiguration.SecurityManagementGlue "toInterface" --> clientServerConfiguration.server.serverDetailConfiguration.SecurityManagementToInterface
+clientServerConfiguration.server.serverDetailConfiguration.SecurityManagementToInterface "toRoles" *-- clientServerConfiguration.server.serverDetailConfiguration.SecurityManagementRoleTo
+clientServerConfiguration.server.serverDetailConfiguration.SecurityManagementRoleFrom "attachement" --> clientServerConfiguration.server.serverDetailConfiguration.database.SecurityManagementProvidedPort
+clientServerConfiguration.server.serverDetailConfiguration.ServerDetailInterface "requiredPorts" *-- clientServerConfiguration.server.serverDetailConfiguration.ReceiverRequestRequiredPort
+clientServerConfiguration.server.serverDetailConfiguration.ReceiverRequestRequiredPort "binding" --> clientServerConfiguration.server.serverDetailConfiguration.connectionManager.ExternalSocketProvidedPort
+clientServerConfiguration.server.ServerProvidedInterface "providedPorts" *-- clientServerConfiguration.server.ReceiverRequestProvidedPort
+clientServerConfiguration.server.ReceiverRequestProvidedPort "binding" --> clientServerConfiguration.server.serverDetailConfiguration.ReceiverRequestRequiredPort
+@enduml

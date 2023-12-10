@@ -1,0 +1,6 @@
+*.asm
+*.emftvm
+**/target/
+bin/
+xtend-gen/
+.metadata/
