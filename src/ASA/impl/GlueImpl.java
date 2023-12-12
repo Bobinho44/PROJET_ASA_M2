@@ -11,6 +11,7 @@ import ASA.Message;
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -34,7 +35,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class GlueImpl extends MinimalEObjectImpl.Container implements Glue {
 	/**
-	 * The cached value of the '{@link #getFromInterface() <em>From Interface</em>}' reference.
+	 * The cached value of the '{@link #getFromInterface() <em>From Interface</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getFromInterface()
@@ -44,7 +45,7 @@ public class GlueImpl extends MinimalEObjectImpl.Container implements Glue {
 	protected ConnectorFromInterface fromInterface;
 
 	/**
-	 * The cached value of the '{@link #getToInterface() <em>To Interface</em>}' reference.
+	 * The cached value of the '{@link #getToInterface() <em>To Interface</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getToInterface()
@@ -79,14 +80,6 @@ public class GlueImpl extends MinimalEObjectImpl.Container implements Glue {
 	 */
 	@Override
 	public ConnectorFromInterface getFromInterface() {
-		if (fromInterface != null && fromInterface.eIsProxy()) {
-			InternalEObject oldFromInterface = (InternalEObject)fromInterface;
-			fromInterface = (ConnectorFromInterface)eResolveProxy(oldFromInterface);
-			if (fromInterface != oldFromInterface) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ASAPackage.GLUE__FROM_INTERFACE, oldFromInterface, fromInterface));
-			}
-		}
 		return fromInterface;
 	}
 
@@ -95,8 +88,14 @@ public class GlueImpl extends MinimalEObjectImpl.Container implements Glue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConnectorFromInterface basicGetFromInterface() {
-		return fromInterface;
+	public NotificationChain basicSetFromInterface(ConnectorFromInterface newFromInterface, NotificationChain msgs) {
+		ConnectorFromInterface oldFromInterface = fromInterface;
+		fromInterface = newFromInterface;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ASAPackage.GLUE__FROM_INTERFACE, oldFromInterface, newFromInterface);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -106,10 +105,17 @@ public class GlueImpl extends MinimalEObjectImpl.Container implements Glue {
 	 */
 	@Override
 	public void setFromInterface(ConnectorFromInterface newFromInterface) {
-		ConnectorFromInterface oldFromInterface = fromInterface;
-		fromInterface = newFromInterface;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ASAPackage.GLUE__FROM_INTERFACE, oldFromInterface, fromInterface));
+		if (newFromInterface != fromInterface) {
+			NotificationChain msgs = null;
+			if (fromInterface != null)
+				msgs = ((InternalEObject)fromInterface).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ASAPackage.GLUE__FROM_INTERFACE, null, msgs);
+			if (newFromInterface != null)
+				msgs = ((InternalEObject)newFromInterface).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ASAPackage.GLUE__FROM_INTERFACE, null, msgs);
+			msgs = basicSetFromInterface(newFromInterface, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ASAPackage.GLUE__FROM_INTERFACE, newFromInterface, newFromInterface));
 	}
 
 	/**
@@ -119,14 +125,6 @@ public class GlueImpl extends MinimalEObjectImpl.Container implements Glue {
 	 */
 	@Override
 	public ConnectorToInterface getToInterface() {
-		if (toInterface != null && toInterface.eIsProxy()) {
-			InternalEObject oldToInterface = (InternalEObject)toInterface;
-			toInterface = (ConnectorToInterface)eResolveProxy(oldToInterface);
-			if (toInterface != oldToInterface) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ASAPackage.GLUE__TO_INTERFACE, oldToInterface, toInterface));
-			}
-		}
 		return toInterface;
 	}
 
@@ -135,8 +133,14 @@ public class GlueImpl extends MinimalEObjectImpl.Container implements Glue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConnectorToInterface basicGetToInterface() {
-		return toInterface;
+	public NotificationChain basicSetToInterface(ConnectorToInterface newToInterface, NotificationChain msgs) {
+		ConnectorToInterface oldToInterface = toInterface;
+		toInterface = newToInterface;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ASAPackage.GLUE__TO_INTERFACE, oldToInterface, newToInterface);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -146,10 +150,17 @@ public class GlueImpl extends MinimalEObjectImpl.Container implements Glue {
 	 */
 	@Override
 	public void setToInterface(ConnectorToInterface newToInterface) {
-		ConnectorToInterface oldToInterface = toInterface;
-		toInterface = newToInterface;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ASAPackage.GLUE__TO_INTERFACE, oldToInterface, toInterface));
+		if (newToInterface != toInterface) {
+			NotificationChain msgs = null;
+			if (toInterface != null)
+				msgs = ((InternalEObject)toInterface).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ASAPackage.GLUE__TO_INTERFACE, null, msgs);
+			if (newToInterface != null)
+				msgs = ((InternalEObject)newToInterface).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ASAPackage.GLUE__TO_INTERFACE, null, msgs);
+			msgs = basicSetToInterface(newToInterface, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ASAPackage.GLUE__TO_INTERFACE, newToInterface, newToInterface));
 	}
 
 	/**
@@ -170,14 +181,28 @@ public class GlueImpl extends MinimalEObjectImpl.Container implements Glue {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ASAPackage.GLUE__FROM_INTERFACE:
+				return basicSetFromInterface(null, msgs);
+			case ASAPackage.GLUE__TO_INTERFACE:
+				return basicSetToInterface(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ASAPackage.GLUE__FROM_INTERFACE:
-				if (resolve) return getFromInterface();
-				return basicGetFromInterface();
+				return getFromInterface();
 			case ASAPackage.GLUE__TO_INTERFACE:
-				if (resolve) return getToInterface();
-				return basicGetToInterface();
+				return getToInterface();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

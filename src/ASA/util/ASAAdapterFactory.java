@@ -168,6 +168,18 @@ public class ASAAdapterFactory extends AdapterFactoryImpl {
 				return createRoleToAdapter();
 			}
 			@Override
+			public Adapter caseService(Service object) {
+				return createServiceAdapter();
+			}
+			@Override
+			public Adapter caseServiceProvided(ServiceProvided object) {
+				return createServiceProvidedAdapter();
+			}
+			@Override
+			public Adapter caseServiceRequired(ServiceRequired object) {
+				return createServiceRequiredAdapter();
+			}
+			@Override
 			public Adapter caseTechnicalConstraint(TechnicalConstraint object) {
 				return createTechnicalConstraintAdapter();
 			}
@@ -524,6 +536,48 @@ public class ASAAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRoleToAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ASA.Service <em>Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ASA.Service
+	 * @generated
+	 */
+	public Adapter createServiceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ASA.ServiceProvided <em>Service Provided</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ASA.ServiceProvided
+	 * @generated
+	 */
+	public Adapter createServiceProvidedAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ASA.ServiceRequired <em>Service Required</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ASA.ServiceRequired
+	 * @generated
+	 */
+	public Adapter createServiceRequiredAdapter() {
 		return null;
 	}
 

@@ -29,6 +29,9 @@ import ASA.Property;
 import ASA.Role;
 import ASA.RoleFrom;
 import ASA.RoleTo;
+import ASA.Service;
+import ASA.ServiceProvided;
+import ASA.ServiceRequired;
 import ASA.TechnicalConstraint;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -220,6 +223,27 @@ public class ASAPackageImpl extends EPackageImpl implements ASAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass serviceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass serviceProvidedEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass serviceRequiredEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass technicalConstraintEClass = null;
 
 	/**
@@ -405,6 +429,16 @@ public class ASAPackageImpl extends EPackageImpl implements ASAPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getComponentRequiredInterface_RequiredServices() {
+		return (EReference)componentRequiredInterfaceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getComponentRequiredPort() {
 		return componentRequiredPortEClass;
 	}
@@ -467,6 +501,16 @@ public class ASAPackageImpl extends EPackageImpl implements ASAPackage {
 	@Override
 	public EReference getComponentProvidedInterface_ProvidedPorts() {
 		return (EReference)componentProvidedInterfaceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getComponentProvidedInterface_RequiredServices() {
+		return (EReference)componentProvidedInterfaceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -885,6 +929,36 @@ public class ASAPackageImpl extends EPackageImpl implements ASAPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getService() {
+		return serviceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getServiceProvided() {
+		return serviceProvidedEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getServiceRequired() {
+		return serviceRequiredEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getTechnicalConstraint() {
 		return technicalConstraintEClass;
 	}
@@ -972,6 +1046,7 @@ public class ASAPackageImpl extends EPackageImpl implements ASAPackage {
 
 		componentRequiredInterfaceEClass = createEClass(COMPONENT_REQUIRED_INTERFACE);
 		createEReference(componentRequiredInterfaceEClass, COMPONENT_REQUIRED_INTERFACE__REQUIRED_PORTS);
+		createEReference(componentRequiredInterfaceEClass, COMPONENT_REQUIRED_INTERFACE__REQUIRED_SERVICES);
 
 		componentRequiredPortEClass = createEClass(COMPONENT_REQUIRED_PORT);
 		createEReference(componentRequiredPortEClass, COMPONENT_REQUIRED_PORT__ATTACHEMENT);
@@ -982,6 +1057,7 @@ public class ASAPackageImpl extends EPackageImpl implements ASAPackage {
 
 		componentProvidedInterfaceEClass = createEClass(COMPONENT_PROVIDED_INTERFACE);
 		createEReference(componentProvidedInterfaceEClass, COMPONENT_PROVIDED_INTERFACE__PROVIDED_PORTS);
+		createEReference(componentProvidedInterfaceEClass, COMPONENT_PROVIDED_INTERFACE__REQUIRED_SERVICES);
 
 		componentProvidedPortEClass = createEClass(COMPONENT_PROVIDED_PORT);
 		createEReference(componentProvidedPortEClass, COMPONENT_PROVIDED_PORT__BINDING);
@@ -1045,6 +1121,12 @@ public class ASAPackageImpl extends EPackageImpl implements ASAPackage {
 		roleToEClass = createEClass(ROLE_TO);
 		createEReference(roleToEClass, ROLE_TO__OWNER);
 
+		serviceEClass = createEClass(SERVICE);
+
+		serviceProvidedEClass = createEClass(SERVICE_PROVIDED);
+
+		serviceRequiredEClass = createEClass(SERVICE_REQUIRED);
+
 		technicalConstraintEClass = createEClass(TECHNICAL_CONSTRAINT);
 		createEAttribute(technicalConstraintEClass, TECHNICAL_CONSTRAINT__DESCRIPTION);
 	}
@@ -1083,6 +1165,7 @@ public class ASAPackageImpl extends EPackageImpl implements ASAPackage {
 		componentPortEClass.getESuperTypes().add(this.getPort());
 		componentProvidedInterfaceEClass.getESuperTypes().add(this.getComponentInterface());
 		componentProvidedPortEClass.getESuperTypes().add(this.getComponentPort());
+		configurationInterfaceEClass.getESuperTypes().add(this.getInterface());
 		configurationRequiredPortEClass.getESuperTypes().add(this.getConfigurationPort());
 		configurationPortEClass.getESuperTypes().add(this.getPort());
 		configurationProvidedPortEClass.getESuperTypes().add(this.getConfigurationPort());
@@ -1095,6 +1178,8 @@ public class ASAPackageImpl extends EPackageImpl implements ASAPackage {
 		roleEClass.getESuperTypes().add(this.getBus());
 		roleFromEClass.getESuperTypes().add(this.getRole());
 		roleToEClass.getESuperTypes().add(this.getRole());
+		serviceProvidedEClass.getESuperTypes().add(this.getService());
+		serviceRequiredEClass.getESuperTypes().add(this.getService());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(busEClass, Bus.class, "Bus", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1103,16 +1188,17 @@ public class ASAPackageImpl extends EPackageImpl implements ASAPackage {
 		addEParameter(op, this.getMessage(), "message", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComponent_Properties(), this.getProperty(), null, "properties", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComponent_TechnicalConstraints(), this.getTechnicalConstraint(), null, "technicalConstraints", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComponent_RequiredInterface(), this.getComponentRequiredInterface(), null, "requiredInterface", null, 1, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComponent_ProvidedInterface(), this.getComponentProvidedInterface(), null, "providedInterface", null, 1, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComponent_Properties(), this.getProperty(), null, "properties", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComponent_TechnicalConstraints(), this.getTechnicalConstraint(), null, "technicalConstraints", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComponent_RequiredInterface(), this.getComponentRequiredInterface(), null, "requiredInterface", null, 1, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComponent_ProvidedInterface(), this.getComponentProvidedInterface(), null, "providedInterface", null, 1, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(componentInterfaceEClass, ComponentInterface.class, "ComponentInterface", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComponentInterface_Owner(), this.getComponent(), null, "owner", null, 1, 1, ComponentInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(componentRequiredInterfaceEClass, ComponentRequiredInterface.class, "ComponentRequiredInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComponentRequiredInterface_RequiredPorts(), this.getComponentRequiredPort(), null, "requiredPorts", null, 0, -1, ComponentRequiredInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComponentRequiredInterface_RequiredPorts(), this.getComponentRequiredPort(), null, "requiredPorts", null, 0, -1, ComponentRequiredInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComponentRequiredInterface_RequiredServices(), this.getServiceRequired(), null, "requiredServices", null, 0, -1, ComponentRequiredInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(componentRequiredPortEClass, ComponentRequiredPort.class, "ComponentRequiredPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComponentRequiredPort_Attachement(), this.getRoleTo(), null, "attachement", null, 0, 1, ComponentRequiredPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1122,20 +1208,21 @@ public class ASAPackageImpl extends EPackageImpl implements ASAPackage {
 		initEClass(componentPortEClass, ComponentPort.class, "ComponentPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(componentProvidedInterfaceEClass, ComponentProvidedInterface.class, "ComponentProvidedInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComponentProvidedInterface_ProvidedPorts(), this.getComponentProvidedPort(), null, "providedPorts", null, 1, -1, ComponentProvidedInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComponentProvidedInterface_ProvidedPorts(), this.getComponentProvidedPort(), null, "providedPorts", null, 1, -1, ComponentProvidedInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComponentProvidedInterface_RequiredServices(), this.getServiceProvided(), null, "requiredServices", null, 0, -1, ComponentProvidedInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(componentProvidedPortEClass, ComponentProvidedPort.class, "ComponentProvidedPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComponentProvidedPort_Binding(), this.getConfigurationRequiredPort(), null, "binding", null, 0, 1, ComponentProvidedPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComponentProvidedPort_Owner(), this.getComponentProvidedInterface(), null, "owner", null, 1, 1, ComponentProvidedPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(configurationEClass, Configuration.class, "Configuration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getConfiguration_Components(), this.getComponent(), null, "components", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConfiguration_Connectors(), this.getConnector(), null, "connectors", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConfiguration_Interface(), this.getConfigurationInterface(), null, "interface", null, 1, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConfiguration_Components(), this.getComponent(), null, "components", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConfiguration_Connectors(), this.getConnector(), null, "connectors", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConfiguration_Interface(), this.getConfigurationInterface(), null, "interface", null, 1, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(configurationInterfaceEClass, ConfigurationInterface.class, "ConfigurationInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getConfigurationInterface_RequiredPorts(), this.getConfigurationRequiredPort(), null, "requiredPorts", null, 0, -1, ConfigurationInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConfigurationInterface_ProvidedPorts(), this.getConfigurationProvidedPort(), null, "providedPorts", null, 0, -1, ConfigurationInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConfigurationInterface_RequiredPorts(), this.getConfigurationRequiredPort(), null, "requiredPorts", null, 0, -1, ConfigurationInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConfigurationInterface_ProvidedPorts(), this.getConfigurationProvidedPort(), null, "providedPorts", null, 0, -1, ConfigurationInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConfigurationInterface_Owner(), this.getConfiguration(), null, "owner", null, 1, 1, ConfigurationInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(configurationRequiredPortEClass, ConfigurationRequiredPort.class, "ConfigurationRequiredPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1149,20 +1236,20 @@ public class ASAPackageImpl extends EPackageImpl implements ASAPackage {
 		initEReference(getConfigurationProvidedPort_Owner(), this.getConfigurationInterface(), null, "owner", null, 1, 1, ConfigurationProvidedPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(connectorEClass, Connector.class, "Connector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getConnector_Glue(), this.getGlue(), null, "glue", null, 1, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConnector_Glue(), this.getGlue(), null, "glue", null, 1, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(connectorInterfaceEClass, ConnectorInterface.class, "ConnectorInterface", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getConnectorInterface_Owner(), this.getGlue(), null, "owner", null, 1, 1, ConnectorInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(connectorFromInterfaceEClass, ConnectorFromInterface.class, "ConnectorFromInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getConnectorFromInterface_FromRoles(), this.getRoleFrom(), null, "fromRoles", null, 0, -1, ConnectorFromInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConnectorFromInterface_FromRoles(), this.getRoleFrom(), null, "fromRoles", null, 0, -1, ConnectorFromInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(connectorToInterfaceEClass, ConnectorToInterface.class, "ConnectorToInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getConnectorToInterface_ToRoles(), this.getRoleTo(), null, "toRoles", null, 0, -1, ConnectorToInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConnectorToInterface_ToRoles(), this.getRoleTo(), null, "toRoles", null, 0, -1, ConnectorToInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(glueEClass, Glue.class, "Glue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGlue_FromInterface(), this.getConnectorFromInterface(), null, "fromInterface", null, 1, 1, Glue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGlue_ToInterface(), this.getConnectorToInterface(), null, "toInterface", null, 1, 1, Glue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGlue_FromInterface(), this.getConnectorFromInterface(), null, "fromInterface", null, 1, 1, Glue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGlue_ToInterface(), this.getConnectorToInterface(), null, "toInterface", null, 1, 1, Glue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(interfaceEClass, Interface.class, "Interface", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1190,6 +1277,12 @@ public class ASAPackageImpl extends EPackageImpl implements ASAPackage {
 
 		initEClass(roleToEClass, RoleTo.class, "RoleTo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRoleTo_Owner(), this.getConnectorToInterface(), null, "owner", null, 1, 1, RoleTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(serviceEClass, Service.class, "Service", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(serviceProvidedEClass, ServiceProvided.class, "ServiceProvided", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(serviceRequiredEClass, ServiceRequired.class, "ServiceRequired", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(technicalConstraintEClass, TechnicalConstraint.class, "TechnicalConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTechnicalConstraint_Description(), ecorePackage.getEString(), "description", null, 1, 1, TechnicalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -6,9 +6,11 @@ import ASA.ASAPackage;
 import ASA.Component;
 import ASA.ComponentRequiredInterface;
 import ASA.ComponentRequiredPort;
+import ASA.ServiceRequired;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -17,7 +19,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +32,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <ul>
  *   <li>{@link ASA.impl.ComponentRequiredInterfaceImpl#getOwner <em>Owner</em>}</li>
  *   <li>{@link ASA.impl.ComponentRequiredInterfaceImpl#getRequiredPorts <em>Required Ports</em>}</li>
+ *   <li>{@link ASA.impl.ComponentRequiredInterfaceImpl#getRequiredServices <em>Required Services</em>}</li>
  * </ul>
  *
  * @generated
@@ -45,7 +49,7 @@ public class ComponentRequiredInterfaceImpl extends MinimalEObjectImpl.Container
 	protected Component owner;
 
 	/**
-	 * The cached value of the '{@link #getRequiredPorts() <em>Required Ports</em>}' reference list.
+	 * The cached value of the '{@link #getRequiredPorts() <em>Required Ports</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRequiredPorts()
@@ -53,6 +57,16 @@ public class ComponentRequiredInterfaceImpl extends MinimalEObjectImpl.Container
 	 * @ordered
 	 */
 	protected EList<ComponentRequiredPort> requiredPorts;
+
+	/**
+	 * The cached value of the '{@link #getRequiredServices() <em>Required Services</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequiredServices()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ServiceRequired> requiredServices;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -121,9 +135,38 @@ public class ComponentRequiredInterfaceImpl extends MinimalEObjectImpl.Container
 	@Override
 	public EList<ComponentRequiredPort> getRequiredPorts() {
 		if (requiredPorts == null) {
-			requiredPorts = new EObjectResolvingEList<ComponentRequiredPort>(ComponentRequiredPort.class, this, ASAPackage.COMPONENT_REQUIRED_INTERFACE__REQUIRED_PORTS);
+			requiredPorts = new EObjectContainmentEList<ComponentRequiredPort>(ComponentRequiredPort.class, this, ASAPackage.COMPONENT_REQUIRED_INTERFACE__REQUIRED_PORTS);
 		}
 		return requiredPorts;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<ServiceRequired> getRequiredServices() {
+		if (requiredServices == null) {
+			requiredServices = new EObjectContainmentEList<ServiceRequired>(ServiceRequired.class, this, ASAPackage.COMPONENT_REQUIRED_INTERFACE__REQUIRED_SERVICES);
+		}
+		return requiredServices;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ASAPackage.COMPONENT_REQUIRED_INTERFACE__REQUIRED_PORTS:
+				return ((InternalEList<?>)getRequiredPorts()).basicRemove(otherEnd, msgs);
+			case ASAPackage.COMPONENT_REQUIRED_INTERFACE__REQUIRED_SERVICES:
+				return ((InternalEList<?>)getRequiredServices()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -139,6 +182,8 @@ public class ComponentRequiredInterfaceImpl extends MinimalEObjectImpl.Container
 				return basicGetOwner();
 			case ASAPackage.COMPONENT_REQUIRED_INTERFACE__REQUIRED_PORTS:
 				return getRequiredPorts();
+			case ASAPackage.COMPONENT_REQUIRED_INTERFACE__REQUIRED_SERVICES:
+				return getRequiredServices();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -159,6 +204,10 @@ public class ComponentRequiredInterfaceImpl extends MinimalEObjectImpl.Container
 				getRequiredPorts().clear();
 				getRequiredPorts().addAll((Collection<? extends ComponentRequiredPort>)newValue);
 				return;
+			case ASAPackage.COMPONENT_REQUIRED_INTERFACE__REQUIRED_SERVICES:
+				getRequiredServices().clear();
+				getRequiredServices().addAll((Collection<? extends ServiceRequired>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -177,6 +226,9 @@ public class ComponentRequiredInterfaceImpl extends MinimalEObjectImpl.Container
 			case ASAPackage.COMPONENT_REQUIRED_INTERFACE__REQUIRED_PORTS:
 				getRequiredPorts().clear();
 				return;
+			case ASAPackage.COMPONENT_REQUIRED_INTERFACE__REQUIRED_SERVICES:
+				getRequiredServices().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -193,6 +245,8 @@ public class ComponentRequiredInterfaceImpl extends MinimalEObjectImpl.Container
 				return owner != null;
 			case ASAPackage.COMPONENT_REQUIRED_INTERFACE__REQUIRED_PORTS:
 				return requiredPorts != null && !requiredPorts.isEmpty();
+			case ASAPackage.COMPONENT_REQUIRED_INTERFACE__REQUIRED_SERVICES:
+				return requiredServices != null && !requiredServices.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -22,13 +22,13 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ConnectorFromInterface extends ConnectorInterface {
 	/**
-	 * Returns the value of the '<em><b>From Roles</b></em>' reference list.
+	 * Returns the value of the '<em><b>From Roles</b></em>' containment reference list.
 	 * The list contents are of type {@link ASA.RoleFrom}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>From Roles</em>' reference list.
+	 * @return the value of the '<em>From Roles</em>' containment reference list.
 	 * @see ASA.ASAPackage#getConnectorFromInterface_FromRoles()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<RoleFrom> getFromRoles();

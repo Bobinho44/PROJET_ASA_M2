@@ -105,7 +105,7 @@ public interface ASAPackage extends EPackage {
 	int COMPONENT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Properties</b></em>' reference list.
+	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -114,7 +114,7 @@ public interface ASAPackage extends EPackage {
 	int COMPONENT__PROPERTIES = 0;
 
 	/**
-	 * The feature id for the '<em><b>Technical Constraints</b></em>' reference list.
+	 * The feature id for the '<em><b>Technical Constraints</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -123,7 +123,7 @@ public interface ASAPackage extends EPackage {
 	int COMPONENT__TECHNICAL_CONSTRAINTS = 1;
 
 	/**
-	 * The feature id for the '<em><b>Required Interface</b></em>' reference.
+	 * The feature id for the '<em><b>Required Interface</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -132,7 +132,7 @@ public interface ASAPackage extends EPackage {
 	int COMPONENT__REQUIRED_INTERFACE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Provided Interface</b></em>' reference.
+	 * The feature id for the '<em><b>Provided Interface</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -243,7 +243,7 @@ public interface ASAPackage extends EPackage {
 	int COMPONENT_REQUIRED_INTERFACE__OWNER = COMPONENT_INTERFACE__OWNER;
 
 	/**
-	 * The feature id for the '<em><b>Required Ports</b></em>' reference list.
+	 * The feature id for the '<em><b>Required Ports</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -252,13 +252,22 @@ public interface ASAPackage extends EPackage {
 	int COMPONENT_REQUIRED_INTERFACE__REQUIRED_PORTS = COMPONENT_INTERFACE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Required Services</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT_REQUIRED_INTERFACE__REQUIRED_SERVICES = COMPONENT_INTERFACE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Component Required Interface</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_REQUIRED_INTERFACE_FEATURE_COUNT = COMPONENT_INTERFACE_FEATURE_COUNT + 1;
+	int COMPONENT_REQUIRED_INTERFACE_FEATURE_COUNT = COMPONENT_INTERFACE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Component Required Interface</em>' class.
@@ -427,7 +436,7 @@ public interface ASAPackage extends EPackage {
 	int COMPONENT_PROVIDED_INTERFACE__OWNER = COMPONENT_INTERFACE__OWNER;
 
 	/**
-	 * The feature id for the '<em><b>Provided Ports</b></em>' reference list.
+	 * The feature id for the '<em><b>Provided Ports</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -436,13 +445,22 @@ public interface ASAPackage extends EPackage {
 	int COMPONENT_PROVIDED_INTERFACE__PROVIDED_PORTS = COMPONENT_INTERFACE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Required Services</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT_PROVIDED_INTERFACE__REQUIRED_SERVICES = COMPONENT_INTERFACE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Component Provided Interface</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_PROVIDED_INTERFACE_FEATURE_COUNT = COMPONENT_INTERFACE_FEATURE_COUNT + 1;
+	int COMPONENT_PROVIDED_INTERFACE_FEATURE_COUNT = COMPONENT_INTERFACE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Component Provided Interface</em>' class.
@@ -519,7 +537,7 @@ public interface ASAPackage extends EPackage {
 	int CONFIGURATION = 8;
 
 	/**
-	 * The feature id for the '<em><b>Components</b></em>' reference list.
+	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -528,7 +546,7 @@ public interface ASAPackage extends EPackage {
 	int CONFIGURATION__COMPONENTS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Connectors</b></em>' reference list.
+	 * The feature id for the '<em><b>Connectors</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -537,7 +555,7 @@ public interface ASAPackage extends EPackage {
 	int CONFIGURATION__CONNECTORS = 1;
 
 	/**
-	 * The feature id for the '<em><b>Interface</b></em>' reference.
+	 * The feature id for the '<em><b>Interface</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -574,22 +592,22 @@ public interface ASAPackage extends EPackage {
 	int CONFIGURATION_INTERFACE = 9;
 
 	/**
-	 * The feature id for the '<em><b>Required Ports</b></em>' reference list.
+	 * The feature id for the '<em><b>Required Ports</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_INTERFACE__REQUIRED_PORTS = 0;
+	int CONFIGURATION_INTERFACE__REQUIRED_PORTS = INTERFACE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Provided Ports</b></em>' reference list.
+	 * The feature id for the '<em><b>Provided Ports</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_INTERFACE__PROVIDED_PORTS = 1;
+	int CONFIGURATION_INTERFACE__PROVIDED_PORTS = INTERFACE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Owner</b></em>' reference.
@@ -598,7 +616,7 @@ public interface ASAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_INTERFACE__OWNER = 2;
+	int CONFIGURATION_INTERFACE__OWNER = INTERFACE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Configuration Interface</em>' class.
@@ -607,7 +625,7 @@ public interface ASAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_INTERFACE_FEATURE_COUNT = 3;
+	int CONFIGURATION_INTERFACE_FEATURE_COUNT = INTERFACE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Configuration Interface</em>' class.
@@ -616,7 +634,7 @@ public interface ASAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_INTERFACE_OPERATION_COUNT = 0;
+	int CONFIGURATION_INTERFACE_OPERATION_COUNT = INTERFACE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ASA.impl.ConfigurationPortImpl <em>Configuration Port</em>}' class.
@@ -776,7 +794,7 @@ public interface ASAPackage extends EPackage {
 	int CONNECTOR = 13;
 
 	/**
-	 * The feature id for the '<em><b>Glue</b></em>' reference.
+	 * The feature id for the '<em><b>Glue</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -868,7 +886,7 @@ public interface ASAPackage extends EPackage {
 	int CONNECTOR_FROM_INTERFACE__OWNER = CONNECTOR_INTERFACE__OWNER;
 
 	/**
-	 * The feature id for the '<em><b>From Roles</b></em>' reference list.
+	 * The feature id for the '<em><b>From Roles</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -923,7 +941,7 @@ public interface ASAPackage extends EPackage {
 	int CONNECTOR_TO_INTERFACE__OWNER = CONNECTOR_INTERFACE__OWNER;
 
 	/**
-	 * The feature id for the '<em><b>To Roles</b></em>' reference list.
+	 * The feature id for the '<em><b>To Roles</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -969,7 +987,7 @@ public interface ASAPackage extends EPackage {
 	int GLUE = 17;
 
 	/**
-	 * The feature id for the '<em><b>From Interface</b></em>' reference.
+	 * The feature id for the '<em><b>From Interface</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -978,7 +996,7 @@ public interface ASAPackage extends EPackage {
 	int GLUE__FROM_INTERFACE = BUS_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>To Interface</b></em>' reference.
+	 * The feature id for the '<em><b>To Interface</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1061,7 +1079,7 @@ public interface ASAPackage extends EPackage {
 	 * @see ASA.impl.ASAPackageImpl#getTechnicalConstraint()
 	 * @generated
 	 */
-	int TECHNICAL_CONSTRAINT = 25;
+	int TECHNICAL_CONSTRAINT = 28;
 
 	/**
 	 * Returns the meta object for class '{@link ASA.Bus <em>Bus</em>}'.
@@ -1283,6 +1301,90 @@ public interface ASAPackage extends EPackage {
 	int ROLE_TO_OPERATION_COUNT = ROLE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ASA.Service <em>Service</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ASA.Service
+	 * @see ASA.impl.ASAPackageImpl#getService()
+	 * @generated
+	 */
+	int SERVICE = 25;
+
+	/**
+	 * The number of structural features of the '<em>Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ASA.impl.ServiceProvidedImpl <em>Service Provided</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ASA.impl.ServiceProvidedImpl
+	 * @see ASA.impl.ASAPackageImpl#getServiceProvided()
+	 * @generated
+	 */
+	int SERVICE_PROVIDED = 26;
+
+	/**
+	 * The number of structural features of the '<em>Service Provided</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_PROVIDED_FEATURE_COUNT = SERVICE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Service Provided</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_PROVIDED_OPERATION_COUNT = SERVICE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ASA.impl.ServiceRequiredImpl <em>Service Required</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ASA.impl.ServiceRequiredImpl
+	 * @see ASA.impl.ASAPackageImpl#getServiceRequired()
+	 * @generated
+	 */
+	int SERVICE_REQUIRED = 27;
+
+	/**
+	 * The number of structural features of the '<em>Service Required</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_REQUIRED_FEATURE_COUNT = SERVICE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Service Required</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_REQUIRED_OPERATION_COUNT = SERVICE_OPERATION_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1321,10 +1423,10 @@ public interface ASAPackage extends EPackage {
 	EClass getComponent();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ASA.Component#getProperties <em>Properties</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ASA.Component#getProperties <em>Properties</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Properties</em>'.
+	 * @return the meta object for the containment reference list '<em>Properties</em>'.
 	 * @see ASA.Component#getProperties()
 	 * @see #getComponent()
 	 * @generated
@@ -1332,10 +1434,10 @@ public interface ASAPackage extends EPackage {
 	EReference getComponent_Properties();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ASA.Component#getTechnicalConstraints <em>Technical Constraints</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ASA.Component#getTechnicalConstraints <em>Technical Constraints</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Technical Constraints</em>'.
+	 * @return the meta object for the containment reference list '<em>Technical Constraints</em>'.
 	 * @see ASA.Component#getTechnicalConstraints()
 	 * @see #getComponent()
 	 * @generated
@@ -1343,10 +1445,10 @@ public interface ASAPackage extends EPackage {
 	EReference getComponent_TechnicalConstraints();
 
 	/**
-	 * Returns the meta object for the reference '{@link ASA.Component#getRequiredInterface <em>Required Interface</em>}'.
+	 * Returns the meta object for the containment reference '{@link ASA.Component#getRequiredInterface <em>Required Interface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Required Interface</em>'.
+	 * @return the meta object for the containment reference '<em>Required Interface</em>'.
 	 * @see ASA.Component#getRequiredInterface()
 	 * @see #getComponent()
 	 * @generated
@@ -1354,10 +1456,10 @@ public interface ASAPackage extends EPackage {
 	EReference getComponent_RequiredInterface();
 
 	/**
-	 * Returns the meta object for the reference '{@link ASA.Component#getProvidedInterface <em>Provided Interface</em>}'.
+	 * Returns the meta object for the containment reference '{@link ASA.Component#getProvidedInterface <em>Provided Interface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Provided Interface</em>'.
+	 * @return the meta object for the containment reference '<em>Provided Interface</em>'.
 	 * @see ASA.Component#getProvidedInterface()
 	 * @see #getComponent()
 	 * @generated
@@ -1396,15 +1498,26 @@ public interface ASAPackage extends EPackage {
 	EClass getComponentRequiredInterface();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ASA.ComponentRequiredInterface#getRequiredPorts <em>Required Ports</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ASA.ComponentRequiredInterface#getRequiredPorts <em>Required Ports</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Required Ports</em>'.
+	 * @return the meta object for the containment reference list '<em>Required Ports</em>'.
 	 * @see ASA.ComponentRequiredInterface#getRequiredPorts()
 	 * @see #getComponentRequiredInterface()
 	 * @generated
 	 */
 	EReference getComponentRequiredInterface_RequiredPorts();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ASA.ComponentRequiredInterface#getRequiredServices <em>Required Services</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Required Services</em>'.
+	 * @see ASA.ComponentRequiredInterface#getRequiredServices()
+	 * @see #getComponentRequiredInterface()
+	 * @generated
+	 */
+	EReference getComponentRequiredInterface_RequiredServices();
 
 	/**
 	 * Returns the meta object for class '{@link ASA.ComponentRequiredPort <em>Component Required Port</em>}'.
@@ -1470,15 +1583,26 @@ public interface ASAPackage extends EPackage {
 	EClass getComponentProvidedInterface();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ASA.ComponentProvidedInterface#getProvidedPorts <em>Provided Ports</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ASA.ComponentProvidedInterface#getProvidedPorts <em>Provided Ports</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Provided Ports</em>'.
+	 * @return the meta object for the containment reference list '<em>Provided Ports</em>'.
 	 * @see ASA.ComponentProvidedInterface#getProvidedPorts()
 	 * @see #getComponentProvidedInterface()
 	 * @generated
 	 */
 	EReference getComponentProvidedInterface_ProvidedPorts();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ASA.ComponentProvidedInterface#getRequiredServices <em>Required Services</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Required Services</em>'.
+	 * @see ASA.ComponentProvidedInterface#getRequiredServices()
+	 * @see #getComponentProvidedInterface()
+	 * @generated
+	 */
+	EReference getComponentProvidedInterface_RequiredServices();
 
 	/**
 	 * Returns the meta object for class '{@link ASA.ComponentProvidedPort <em>Component Provided Port</em>}'.
@@ -1523,10 +1647,10 @@ public interface ASAPackage extends EPackage {
 	EClass getConfiguration();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ASA.Configuration#getComponents <em>Components</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ASA.Configuration#getComponents <em>Components</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Components</em>'.
+	 * @return the meta object for the containment reference list '<em>Components</em>'.
 	 * @see ASA.Configuration#getComponents()
 	 * @see #getConfiguration()
 	 * @generated
@@ -1534,10 +1658,10 @@ public interface ASAPackage extends EPackage {
 	EReference getConfiguration_Components();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ASA.Configuration#getConnectors <em>Connectors</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ASA.Configuration#getConnectors <em>Connectors</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Connectors</em>'.
+	 * @return the meta object for the containment reference list '<em>Connectors</em>'.
 	 * @see ASA.Configuration#getConnectors()
 	 * @see #getConfiguration()
 	 * @generated
@@ -1545,10 +1669,10 @@ public interface ASAPackage extends EPackage {
 	EReference getConfiguration_Connectors();
 
 	/**
-	 * Returns the meta object for the reference '{@link ASA.Configuration#getInterface <em>Interface</em>}'.
+	 * Returns the meta object for the containment reference '{@link ASA.Configuration#getInterface <em>Interface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Interface</em>'.
+	 * @return the meta object for the containment reference '<em>Interface</em>'.
 	 * @see ASA.Configuration#getInterface()
 	 * @see #getConfiguration()
 	 * @generated
@@ -1566,10 +1690,10 @@ public interface ASAPackage extends EPackage {
 	EClass getConfigurationInterface();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ASA.ConfigurationInterface#getRequiredPorts <em>Required Ports</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ASA.ConfigurationInterface#getRequiredPorts <em>Required Ports</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Required Ports</em>'.
+	 * @return the meta object for the containment reference list '<em>Required Ports</em>'.
 	 * @see ASA.ConfigurationInterface#getRequiredPorts()
 	 * @see #getConfigurationInterface()
 	 * @generated
@@ -1577,10 +1701,10 @@ public interface ASAPackage extends EPackage {
 	EReference getConfigurationInterface_RequiredPorts();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ASA.ConfigurationInterface#getProvidedPorts <em>Provided Ports</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ASA.ConfigurationInterface#getProvidedPorts <em>Provided Ports</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Provided Ports</em>'.
+	 * @return the meta object for the containment reference list '<em>Provided Ports</em>'.
 	 * @see ASA.ConfigurationInterface#getProvidedPorts()
 	 * @see #getConfigurationInterface()
 	 * @generated
@@ -1683,10 +1807,10 @@ public interface ASAPackage extends EPackage {
 	EClass getConnector();
 
 	/**
-	 * Returns the meta object for the reference '{@link ASA.Connector#getGlue <em>Glue</em>}'.
+	 * Returns the meta object for the containment reference '{@link ASA.Connector#getGlue <em>Glue</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Glue</em>'.
+	 * @return the meta object for the containment reference '<em>Glue</em>'.
 	 * @see ASA.Connector#getGlue()
 	 * @see #getConnector()
 	 * @generated
@@ -1725,10 +1849,10 @@ public interface ASAPackage extends EPackage {
 	EClass getConnectorFromInterface();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ASA.ConnectorFromInterface#getFromRoles <em>From Roles</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ASA.ConnectorFromInterface#getFromRoles <em>From Roles</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>From Roles</em>'.
+	 * @return the meta object for the containment reference list '<em>From Roles</em>'.
 	 * @see ASA.ConnectorFromInterface#getFromRoles()
 	 * @see #getConnectorFromInterface()
 	 * @generated
@@ -1746,10 +1870,10 @@ public interface ASAPackage extends EPackage {
 	EClass getConnectorToInterface();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ASA.ConnectorToInterface#getToRoles <em>To Roles</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ASA.ConnectorToInterface#getToRoles <em>To Roles</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>To Roles</em>'.
+	 * @return the meta object for the containment reference list '<em>To Roles</em>'.
 	 * @see ASA.ConnectorToInterface#getToRoles()
 	 * @see #getConnectorToInterface()
 	 * @generated
@@ -1767,10 +1891,10 @@ public interface ASAPackage extends EPackage {
 	EClass getGlue();
 
 	/**
-	 * Returns the meta object for the reference '{@link ASA.Glue#getFromInterface <em>From Interface</em>}'.
+	 * Returns the meta object for the containment reference '{@link ASA.Glue#getFromInterface <em>From Interface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>From Interface</em>'.
+	 * @return the meta object for the containment reference '<em>From Interface</em>'.
 	 * @see ASA.Glue#getFromInterface()
 	 * @see #getGlue()
 	 * @generated
@@ -1778,10 +1902,10 @@ public interface ASAPackage extends EPackage {
 	EReference getGlue_FromInterface();
 
 	/**
-	 * Returns the meta object for the reference '{@link ASA.Glue#getToInterface <em>To Interface</em>}'.
+	 * Returns the meta object for the containment reference '{@link ASA.Glue#getToInterface <em>To Interface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>To Interface</em>'.
+	 * @return the meta object for the containment reference '<em>To Interface</em>'.
 	 * @see ASA.Glue#getToInterface()
 	 * @see #getGlue()
 	 * @generated
@@ -1915,6 +2039,36 @@ public interface ASAPackage extends EPackage {
 	EReference getRoleTo_Owner();
 
 	/**
+	 * Returns the meta object for class '{@link ASA.Service <em>Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Service</em>'.
+	 * @see ASA.Service
+	 * @generated
+	 */
+	EClass getService();
+
+	/**
+	 * Returns the meta object for class '{@link ASA.ServiceProvided <em>Service Provided</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Service Provided</em>'.
+	 * @see ASA.ServiceProvided
+	 * @generated
+	 */
+	EClass getServiceProvided();
+
+	/**
+	 * Returns the meta object for class '{@link ASA.ServiceRequired <em>Service Required</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Service Required</em>'.
+	 * @see ASA.ServiceRequired
+	 * @generated
+	 */
+	EClass getServiceRequired();
+
+	/**
 	 * Returns the meta object for class '{@link ASA.TechnicalConstraint <em>Technical Constraint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2019,7 +2173,7 @@ public interface ASAPackage extends EPackage {
 		EClass COMPONENT = eINSTANCE.getComponent();
 
 		/**
-		 * The meta object literal for the '<em><b>Properties</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2027,7 +2181,7 @@ public interface ASAPackage extends EPackage {
 		EReference COMPONENT__PROPERTIES = eINSTANCE.getComponent_Properties();
 
 		/**
-		 * The meta object literal for the '<em><b>Technical Constraints</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Technical Constraints</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2035,7 +2189,7 @@ public interface ASAPackage extends EPackage {
 		EReference COMPONENT__TECHNICAL_CONSTRAINTS = eINSTANCE.getComponent_TechnicalConstraints();
 
 		/**
-		 * The meta object literal for the '<em><b>Required Interface</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Required Interface</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2043,7 +2197,7 @@ public interface ASAPackage extends EPackage {
 		EReference COMPONENT__REQUIRED_INTERFACE = eINSTANCE.getComponent_RequiredInterface();
 
 		/**
-		 * The meta object literal for the '<em><b>Provided Interface</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Provided Interface</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2079,12 +2233,20 @@ public interface ASAPackage extends EPackage {
 		EClass COMPONENT_REQUIRED_INTERFACE = eINSTANCE.getComponentRequiredInterface();
 
 		/**
-		 * The meta object literal for the '<em><b>Required Ports</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Required Ports</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference COMPONENT_REQUIRED_INTERFACE__REQUIRED_PORTS = eINSTANCE.getComponentRequiredInterface_RequiredPorts();
+
+		/**
+		 * The meta object literal for the '<em><b>Required Services</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPONENT_REQUIRED_INTERFACE__REQUIRED_SERVICES = eINSTANCE.getComponentRequiredInterface_RequiredServices();
 
 		/**
 		 * The meta object literal for the '{@link ASA.impl.ComponentRequiredPortImpl <em>Component Required Port</em>}' class.
@@ -2141,12 +2303,20 @@ public interface ASAPackage extends EPackage {
 		EClass COMPONENT_PROVIDED_INTERFACE = eINSTANCE.getComponentProvidedInterface();
 
 		/**
-		 * The meta object literal for the '<em><b>Provided Ports</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Provided Ports</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference COMPONENT_PROVIDED_INTERFACE__PROVIDED_PORTS = eINSTANCE.getComponentProvidedInterface_ProvidedPorts();
+
+		/**
+		 * The meta object literal for the '<em><b>Required Services</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPONENT_PROVIDED_INTERFACE__REQUIRED_SERVICES = eINSTANCE.getComponentProvidedInterface_RequiredServices();
 
 		/**
 		 * The meta object literal for the '{@link ASA.impl.ComponentProvidedPortImpl <em>Component Provided Port</em>}' class.
@@ -2185,7 +2355,7 @@ public interface ASAPackage extends EPackage {
 		EClass CONFIGURATION = eINSTANCE.getConfiguration();
 
 		/**
-		 * The meta object literal for the '<em><b>Components</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Components</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2193,7 +2363,7 @@ public interface ASAPackage extends EPackage {
 		EReference CONFIGURATION__COMPONENTS = eINSTANCE.getConfiguration_Components();
 
 		/**
-		 * The meta object literal for the '<em><b>Connectors</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Connectors</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2201,7 +2371,7 @@ public interface ASAPackage extends EPackage {
 		EReference CONFIGURATION__CONNECTORS = eINSTANCE.getConfiguration_Connectors();
 
 		/**
-		 * The meta object literal for the '<em><b>Interface</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Interface</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2219,7 +2389,7 @@ public interface ASAPackage extends EPackage {
 		EClass CONFIGURATION_INTERFACE = eINSTANCE.getConfigurationInterface();
 
 		/**
-		 * The meta object literal for the '<em><b>Required Ports</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Required Ports</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2227,7 +2397,7 @@ public interface ASAPackage extends EPackage {
 		EReference CONFIGURATION_INTERFACE__REQUIRED_PORTS = eINSTANCE.getConfigurationInterface_RequiredPorts();
 
 		/**
-		 * The meta object literal for the '<em><b>Provided Ports</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Provided Ports</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2315,7 +2485,7 @@ public interface ASAPackage extends EPackage {
 		EClass CONNECTOR = eINSTANCE.getConnector();
 
 		/**
-		 * The meta object literal for the '<em><b>Glue</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Glue</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2351,7 +2521,7 @@ public interface ASAPackage extends EPackage {
 		EClass CONNECTOR_FROM_INTERFACE = eINSTANCE.getConnectorFromInterface();
 
 		/**
-		 * The meta object literal for the '<em><b>From Roles</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>From Roles</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2369,7 +2539,7 @@ public interface ASAPackage extends EPackage {
 		EClass CONNECTOR_TO_INTERFACE = eINSTANCE.getConnectorToInterface();
 
 		/**
-		 * The meta object literal for the '<em><b>To Roles</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>To Roles</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2387,7 +2557,7 @@ public interface ASAPackage extends EPackage {
 		EClass GLUE = eINSTANCE.getGlue();
 
 		/**
-		 * The meta object literal for the '<em><b>From Interface</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>From Interface</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2395,7 +2565,7 @@ public interface ASAPackage extends EPackage {
 		EReference GLUE__FROM_INTERFACE = eINSTANCE.getGlue_FromInterface();
 
 		/**
-		 * The meta object literal for the '<em><b>To Interface</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>To Interface</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2509,6 +2679,36 @@ public interface ASAPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ROLE_TO__OWNER = eINSTANCE.getRoleTo_Owner();
+
+		/**
+		 * The meta object literal for the '{@link ASA.Service <em>Service</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ASA.Service
+		 * @see ASA.impl.ASAPackageImpl#getService()
+		 * @generated
+		 */
+		EClass SERVICE = eINSTANCE.getService();
+
+		/**
+		 * The meta object literal for the '{@link ASA.impl.ServiceProvidedImpl <em>Service Provided</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ASA.impl.ServiceProvidedImpl
+		 * @see ASA.impl.ASAPackageImpl#getServiceProvided()
+		 * @generated
+		 */
+		EClass SERVICE_PROVIDED = eINSTANCE.getServiceProvided();
+
+		/**
+		 * The meta object literal for the '{@link ASA.impl.ServiceRequiredImpl <em>Service Required</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ASA.impl.ServiceRequiredImpl
+		 * @see ASA.impl.ASAPackageImpl#getServiceRequired()
+		 * @generated
+		 */
+		EClass SERVICE_REQUIRED = eINSTANCE.getServiceRequired();
 
 		/**
 		 * The meta object literal for the '{@link ASA.impl.TechnicalConstraintImpl <em>Technical Constraint</em>}' class.

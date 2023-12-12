@@ -4,8 +4,6 @@ package ASA;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Configuration Interface</b></em>'.
@@ -24,27 +22,27 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ConfigurationInterface extends EObject {
+public interface ConfigurationInterface extends Interface {
 	/**
-	 * Returns the value of the '<em><b>Required Ports</b></em>' reference list.
+	 * Returns the value of the '<em><b>Required Ports</b></em>' containment reference list.
 	 * The list contents are of type {@link ASA.ConfigurationRequiredPort}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Required Ports</em>' reference list.
+	 * @return the value of the '<em>Required Ports</em>' containment reference list.
 	 * @see ASA.ASAPackage#getConfigurationInterface_RequiredPorts()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<ConfigurationRequiredPort> getRequiredPorts();
 
 	/**
-	 * Returns the value of the '<em><b>Provided Ports</b></em>' reference list.
+	 * Returns the value of the '<em><b>Provided Ports</b></em>' containment reference list.
 	 * The list contents are of type {@link ASA.ConfigurationProvidedPort}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Provided Ports</em>' reference list.
+	 * @return the value of the '<em>Provided Ports</em>' containment reference list.
 	 * @see ASA.ASAPackage#getConfigurationInterface_ProvidedPorts()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<ConfigurationProvidedPort> getProvidedPorts();

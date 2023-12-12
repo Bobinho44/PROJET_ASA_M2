@@ -8,13 +8,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Component">
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-        eType="#//Property"/>
+        eType="#//Property" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="technicalConstraints" upperBound="-1"
-        eType="#//TechnicalConstraint"/>
+        eType="#//TechnicalConstraint" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredInterface" lowerBound="1"
-        eType="#//ComponentRequiredInterface"/>
+        eType="#//ComponentRequiredInterface" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="providedInterface" lowerBound="1"
-        eType="#//ComponentProvidedInterface"/>
+        eType="#//ComponentProvidedInterface" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComponentInterface" abstract="true"
       interface="true" eSuperTypes="#//Interface">
@@ -22,9 +22,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComponentRequiredInterface" eSuperTypes="#//ComponentInterface">
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredPorts" upperBound="-1"
-        eType="#//ComponentRequiredPort"/>
+        eType="#//ComponentRequiredPort" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredServices" upperBound="-1"
-        eType="#//ServiceRequired"/>
+        eType="#//ServiceRequired" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComponentRequiredPort" eSuperTypes="#//ComponentPort">
     <eStructuralFeatures xsi:type="ecore:EReference" name="attachement" eType="#//RoleTo"/>
@@ -34,9 +34,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="ComponentPort" eSuperTypes="#//Port"/>
   <eClassifiers xsi:type="ecore:EClass" name="ComponentProvidedInterface" eSuperTypes="#//ComponentInterface">
     <eStructuralFeatures xsi:type="ecore:EReference" name="providedPorts" lowerBound="1"
-        upperBound="-1" eType="#//ComponentProvidedPort"/>
+        upperBound="-1" eType="#//ComponentProvidedPort" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredServices" upperBound="-1"
-        eType="#//ServiceProvided"/>
+        eType="#//ServiceProvided" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComponentProvidedPort" eSuperTypes="#//ComponentPort">
     <eStructuralFeatures xsi:type="ecore:EReference" name="binding" eType="#//ConfigurationRequiredPort"/>
@@ -44,17 +44,17 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Configuration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
-        eType="#//Component"/>
+        eType="#//Component" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="connectors" upperBound="-1"
-        eType="#//Connector"/>
+        eType="#//Connector" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="interface" lowerBound="1"
-        eType="#//ConfigurationInterface"/>
+        eType="#//ConfigurationInterface" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConfigurationInterface" eSuperTypes="#//Interface">
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredPorts" upperBound="-1"
-        eType="#//ConfigurationRequiredPort"/>
+        eType="#//ConfigurationRequiredPort" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="providedPorts" upperBound="-1"
-        eType="#//ConfigurationProvidedPort"/>
+        eType="#//ConfigurationProvidedPort" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1" eType="#//Configuration"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConfigurationRequiredPort" eSuperTypes="#//ConfigurationPort">
@@ -67,7 +67,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1" eType="#//ConfigurationInterface"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Connector">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="glue" lowerBound="1" eType="#//Glue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="glue" lowerBound="1" eType="#//Glue"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConnectorInterface" abstract="true"
       interface="true" eSuperTypes="#//Interface #//Bus">
@@ -75,17 +76,17 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConnectorFromInterface" eSuperTypes="#//ConnectorInterface">
     <eStructuralFeatures xsi:type="ecore:EReference" name="fromRoles" upperBound="-1"
-        eType="#//RoleFrom"/>
+        eType="#//RoleFrom" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConnectorToInterface" eSuperTypes="#//ConnectorInterface">
     <eStructuralFeatures xsi:type="ecore:EReference" name="toRoles" upperBound="-1"
-        eType="#//RoleTo"/>
+        eType="#//RoleTo" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Glue" eSuperTypes="#//Bus">
     <eStructuralFeatures xsi:type="ecore:EReference" name="fromInterface" lowerBound="1"
-        eType="#//ConnectorFromInterface"/>
+        eType="#//ConnectorFromInterface" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="toInterface" lowerBound="1"
-        eType="#//ConnectorToInterface"/>
+        eType="#//ConnectorToInterface" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Interface" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Message">

@@ -13,6 +13,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -21,7 +22,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,7 +50,7 @@ public class ConnectorToInterfaceImpl extends MinimalEObjectImpl.Container imple
 	 */
 	protected Glue owner;
 	/**
-	 * The cached value of the '{@link #getToRoles() <em>To Roles</em>}' reference list.
+	 * The cached value of the '{@link #getToRoles() <em>To Roles</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getToRoles()
@@ -124,7 +126,7 @@ public class ConnectorToInterfaceImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public EList<RoleTo> getToRoles() {
 		if (toRoles == null) {
-			toRoles = new EObjectResolvingEList<RoleTo>(RoleTo.class, this, ASAPackage.CONNECTOR_TO_INTERFACE__TO_ROLES);
+			toRoles = new EObjectContainmentEList<RoleTo>(RoleTo.class, this, ASAPackage.CONNECTOR_TO_INTERFACE__TO_ROLES);
 		}
 		return toRoles;
 	}
@@ -139,6 +141,20 @@ public class ConnectorToInterfaceImpl extends MinimalEObjectImpl.Container imple
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ASAPackage.CONNECTOR_TO_INTERFACE__TO_ROLES:
+				return ((InternalEList<?>)getToRoles()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

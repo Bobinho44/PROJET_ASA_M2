@@ -75,6 +75,8 @@ public class ASAFactoryImpl extends EFactoryImpl implements ASAFactory {
 			case ASAPackage.PROPERTY: return createProperty();
 			case ASAPackage.ROLE_FROM: return createRoleFrom();
 			case ASAPackage.ROLE_TO: return createRoleTo();
+			case ASAPackage.SERVICE_PROVIDED: return createServiceProvided();
+			case ASAPackage.SERVICE_REQUIRED: return createServiceRequired();
 			case ASAPackage.TECHNICAL_CONSTRAINT: return createTechnicalConstraint();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -277,6 +279,28 @@ public class ASAFactoryImpl extends EFactoryImpl implements ASAFactory {
 	public RoleTo createRoleTo() {
 		RoleToImpl roleTo = new RoleToImpl();
 		return roleTo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ServiceProvided createServiceProvided() {
+		ServiceProvidedImpl serviceProvided = new ServiceProvidedImpl();
+		return serviceProvided;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ServiceRequired createServiceRequired() {
+		ServiceRequiredImpl serviceRequired = new ServiceRequiredImpl();
+		return serviceRequired;
 	}
 
 	/**

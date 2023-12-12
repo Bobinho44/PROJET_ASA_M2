@@ -11,6 +11,7 @@ import ASA.ConfigurationRequiredPort;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -19,7 +20,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,7 +40,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public class ConfigurationInterfaceImpl extends MinimalEObjectImpl.Container implements ConfigurationInterface {
 	/**
-	 * The cached value of the '{@link #getRequiredPorts() <em>Required Ports</em>}' reference list.
+	 * The cached value of the '{@link #getRequiredPorts() <em>Required Ports</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRequiredPorts()
@@ -48,7 +50,7 @@ public class ConfigurationInterfaceImpl extends MinimalEObjectImpl.Container imp
 	protected EList<ConfigurationRequiredPort> requiredPorts;
 
 	/**
-	 * The cached value of the '{@link #getProvidedPorts() <em>Provided Ports</em>}' reference list.
+	 * The cached value of the '{@link #getProvidedPorts() <em>Provided Ports</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getProvidedPorts()
@@ -94,7 +96,7 @@ public class ConfigurationInterfaceImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public EList<ConfigurationRequiredPort> getRequiredPorts() {
 		if (requiredPorts == null) {
-			requiredPorts = new EObjectResolvingEList<ConfigurationRequiredPort>(ConfigurationRequiredPort.class, this, ASAPackage.CONFIGURATION_INTERFACE__REQUIRED_PORTS);
+			requiredPorts = new EObjectContainmentEList<ConfigurationRequiredPort>(ConfigurationRequiredPort.class, this, ASAPackage.CONFIGURATION_INTERFACE__REQUIRED_PORTS);
 		}
 		return requiredPorts;
 	}
@@ -107,7 +109,7 @@ public class ConfigurationInterfaceImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public EList<ConfigurationProvidedPort> getProvidedPorts() {
 		if (providedPorts == null) {
-			providedPorts = new EObjectResolvingEList<ConfigurationProvidedPort>(ConfigurationProvidedPort.class, this, ASAPackage.CONFIGURATION_INTERFACE__PROVIDED_PORTS);
+			providedPorts = new EObjectContainmentEList<ConfigurationProvidedPort>(ConfigurationProvidedPort.class, this, ASAPackage.CONFIGURATION_INTERFACE__PROVIDED_PORTS);
 		}
 		return providedPorts;
 	}
@@ -150,6 +152,22 @@ public class ConfigurationInterfaceImpl extends MinimalEObjectImpl.Container imp
 		owner = newOwner;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ASAPackage.CONFIGURATION_INTERFACE__OWNER, oldOwner, owner));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ASAPackage.CONFIGURATION_INTERFACE__REQUIRED_PORTS:
+				return ((InternalEList<?>)getRequiredPorts()).basicRemove(otherEnd, msgs);
+			case ASAPackage.CONFIGURATION_INTERFACE__PROVIDED_PORTS:
+				return ((InternalEList<?>)getProvidedPorts()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

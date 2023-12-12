@@ -26,46 +26,46 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Configuration extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Components</b></em>' reference list.
+	 * Returns the value of the '<em><b>Components</b></em>' containment reference list.
 	 * The list contents are of type {@link ASA.Component}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Components</em>' reference list.
+	 * @return the value of the '<em>Components</em>' containment reference list.
 	 * @see ASA.ASAPackage#getConfiguration_Components()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Component> getComponents();
 
 	/**
-	 * Returns the value of the '<em><b>Connectors</b></em>' reference list.
+	 * Returns the value of the '<em><b>Connectors</b></em>' containment reference list.
 	 * The list contents are of type {@link ASA.Connector}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Connectors</em>' reference list.
+	 * @return the value of the '<em>Connectors</em>' containment reference list.
 	 * @see ASA.ASAPackage#getConfiguration_Connectors()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Connector> getConnectors();
 
 	/**
-	 * Returns the value of the '<em><b>Interface</b></em>' reference.
+	 * Returns the value of the '<em><b>Interface</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Interface</em>' reference.
+	 * @return the value of the '<em>Interface</em>' containment reference.
 	 * @see #setInterface(ConfigurationInterface)
 	 * @see ASA.ASAPackage#getConfiguration_Interface()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	ConfigurationInterface getInterface();
 
 	/**
-	 * Sets the value of the '{@link ASA.Configuration#getInterface <em>Interface</em>}' reference.
+	 * Sets the value of the '{@link ASA.Configuration#getInterface <em>Interface</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Interface</em>' reference.
+	 * @param value the new value of the '<em>Interface</em>' containment reference.
 	 * @see #getInterface()
 	 * @generated
 	 */

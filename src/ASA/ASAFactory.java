@@ -184,6 +184,24 @@ public interface ASAFactory extends EFactory {
 	RoleTo createRoleTo();
 
 	/**
+	 * Returns a new object of class '<em>Service Provided</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Service Provided</em>'.
+	 * @generated
+	 */
+	ServiceProvided createServiceProvided();
+
+	/**
+	 * Returns a new object of class '<em>Service Required</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Service Required</em>'.
+	 * @generated
+	 */
+	ServiceRequired createServiceRequired();
+
+	/**
 	 * Returns a new object of class '<em>Technical Constraint</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -136,6 +136,7 @@ public class ASASwitch<T> extends Switch<T> {
 			case ASAPackage.CONFIGURATION_INTERFACE: {
 				ConfigurationInterface configurationInterface = (ConfigurationInterface)theEObject;
 				T result = caseConfigurationInterface(configurationInterface);
+				if (result == null) result = caseInterface(configurationInterface);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -249,6 +250,26 @@ public class ASASwitch<T> extends Switch<T> {
 				T result = caseRoleTo(roleTo);
 				if (result == null) result = caseRole(roleTo);
 				if (result == null) result = caseBus(roleTo);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ASAPackage.SERVICE: {
+				Service service = (Service)theEObject;
+				T result = caseService(service);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ASAPackage.SERVICE_PROVIDED: {
+				ServiceProvided serviceProvided = (ServiceProvided)theEObject;
+				T result = caseServiceProvided(serviceProvided);
+				if (result == null) result = caseService(serviceProvided);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ASAPackage.SERVICE_REQUIRED: {
+				ServiceRequired serviceRequired = (ServiceRequired)theEObject;
+				T result = caseServiceRequired(serviceRequired);
+				if (result == null) result = caseService(serviceRequired);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -619,6 +640,51 @@ public class ASASwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseRoleTo(RoleTo object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Service</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseService(Service object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Service Provided</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Service Provided</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseServiceProvided(ServiceProvided object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Service Required</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Service Required</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseServiceRequired(ServiceRequired object) {
 		return null;
 	}
 

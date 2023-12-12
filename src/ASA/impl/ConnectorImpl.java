@@ -8,6 +8,7 @@ import ASA.Glue;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -29,7 +30,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class ConnectorImpl extends MinimalEObjectImpl.Container implements Connector {
 	/**
-	 * The cached value of the '{@link #getGlue() <em>Glue</em>}' reference.
+	 * The cached value of the '{@link #getGlue() <em>Glue</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getGlue()
@@ -64,14 +65,6 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 */
 	@Override
 	public Glue getGlue() {
-		if (glue != null && glue.eIsProxy()) {
-			InternalEObject oldGlue = (InternalEObject)glue;
-			glue = (Glue)eResolveProxy(oldGlue);
-			if (glue != oldGlue) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ASAPackage.CONNECTOR__GLUE, oldGlue, glue));
-			}
-		}
 		return glue;
 	}
 
@@ -80,8 +73,14 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Glue basicGetGlue() {
-		return glue;
+	public NotificationChain basicSetGlue(Glue newGlue, NotificationChain msgs) {
+		Glue oldGlue = glue;
+		glue = newGlue;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ASAPackage.CONNECTOR__GLUE, oldGlue, newGlue);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -91,10 +90,31 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 */
 	@Override
 	public void setGlue(Glue newGlue) {
-		Glue oldGlue = glue;
-		glue = newGlue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ASAPackage.CONNECTOR__GLUE, oldGlue, glue));
+		if (newGlue != glue) {
+			NotificationChain msgs = null;
+			if (glue != null)
+				msgs = ((InternalEObject)glue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ASAPackage.CONNECTOR__GLUE, null, msgs);
+			if (newGlue != null)
+				msgs = ((InternalEObject)newGlue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ASAPackage.CONNECTOR__GLUE, null, msgs);
+			msgs = basicSetGlue(newGlue, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ASAPackage.CONNECTOR__GLUE, newGlue, newGlue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ASAPackage.CONNECTOR__GLUE:
+				return basicSetGlue(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -106,8 +126,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ASAPackage.CONNECTOR__GLUE:
-				if (resolve) return getGlue();
-				return basicGetGlue();
+				return getGlue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

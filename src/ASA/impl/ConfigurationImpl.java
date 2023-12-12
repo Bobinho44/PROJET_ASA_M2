@@ -12,6 +12,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -20,7 +21,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,7 +41,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public class ConfigurationImpl extends MinimalEObjectImpl.Container implements Configuration {
 	/**
-	 * The cached value of the '{@link #getComponents() <em>Components</em>}' reference list.
+	 * The cached value of the '{@link #getComponents() <em>Components</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getComponents()
@@ -49,7 +51,7 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	protected EList<Component> components;
 
 	/**
-	 * The cached value of the '{@link #getConnectors() <em>Connectors</em>}' reference list.
+	 * The cached value of the '{@link #getConnectors() <em>Connectors</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getConnectors()
@@ -59,7 +61,7 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	protected EList<Connector> connectors;
 
 	/**
-	 * The cached value of the '{@link #getInterface() <em>Interface</em>}' reference.
+	 * The cached value of the '{@link #getInterface() <em>Interface</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getInterface()
@@ -95,7 +97,7 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	@Override
 	public EList<Component> getComponents() {
 		if (components == null) {
-			components = new EObjectResolvingEList<Component>(Component.class, this, ASAPackage.CONFIGURATION__COMPONENTS);
+			components = new EObjectContainmentEList<Component>(Component.class, this, ASAPackage.CONFIGURATION__COMPONENTS);
 		}
 		return components;
 	}
@@ -108,7 +110,7 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	@Override
 	public EList<Connector> getConnectors() {
 		if (connectors == null) {
-			connectors = new EObjectResolvingEList<Connector>(Connector.class, this, ASAPackage.CONFIGURATION__CONNECTORS);
+			connectors = new EObjectContainmentEList<Connector>(Connector.class, this, ASAPackage.CONFIGURATION__CONNECTORS);
 		}
 		return connectors;
 	}
@@ -120,14 +122,6 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	 */
 	@Override
 	public ConfigurationInterface getInterface() {
-		if (interface_ != null && interface_.eIsProxy()) {
-			InternalEObject oldInterface = (InternalEObject)interface_;
-			interface_ = (ConfigurationInterface)eResolveProxy(oldInterface);
-			if (interface_ != oldInterface) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ASAPackage.CONFIGURATION__INTERFACE, oldInterface, interface_));
-			}
-		}
 		return interface_;
 	}
 
@@ -136,8 +130,14 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConfigurationInterface basicGetInterface() {
-		return interface_;
+	public NotificationChain basicSetInterface(ConfigurationInterface newInterface, NotificationChain msgs) {
+		ConfigurationInterface oldInterface = interface_;
+		interface_ = newInterface;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ASAPackage.CONFIGURATION__INTERFACE, oldInterface, newInterface);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -147,10 +147,35 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	 */
 	@Override
 	public void setInterface(ConfigurationInterface newInterface) {
-		ConfigurationInterface oldInterface = interface_;
-		interface_ = newInterface;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ASAPackage.CONFIGURATION__INTERFACE, oldInterface, interface_));
+		if (newInterface != interface_) {
+			NotificationChain msgs = null;
+			if (interface_ != null)
+				msgs = ((InternalEObject)interface_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ASAPackage.CONFIGURATION__INTERFACE, null, msgs);
+			if (newInterface != null)
+				msgs = ((InternalEObject)newInterface).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ASAPackage.CONFIGURATION__INTERFACE, null, msgs);
+			msgs = basicSetInterface(newInterface, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ASAPackage.CONFIGURATION__INTERFACE, newInterface, newInterface));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ASAPackage.CONFIGURATION__COMPONENTS:
+				return ((InternalEList<?>)getComponents()).basicRemove(otherEnd, msgs);
+			case ASAPackage.CONFIGURATION__CONNECTORS:
+				return ((InternalEList<?>)getConnectors()).basicRemove(otherEnd, msgs);
+			case ASAPackage.CONFIGURATION__INTERFACE:
+				return basicSetInterface(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -166,8 +191,7 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 			case ASAPackage.CONFIGURATION__CONNECTORS:
 				return getConnectors();
 			case ASAPackage.CONFIGURATION__INTERFACE:
-				if (resolve) return getInterface();
-				return basicGetInterface();
+				return getInterface();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

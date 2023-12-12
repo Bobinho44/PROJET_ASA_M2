@@ -22,22 +22,22 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Connector extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Glue</b></em>' reference.
+	 * Returns the value of the '<em><b>Glue</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Glue</em>' reference.
+	 * @return the value of the '<em>Glue</em>' containment reference.
 	 * @see #setGlue(Glue)
 	 * @see ASA.ASAPackage#getConnector_Glue()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	Glue getGlue();
 
 	/**
-	 * Sets the value of the '{@link ASA.Connector#getGlue <em>Glue</em>}' reference.
+	 * Sets the value of the '{@link ASA.Connector#getGlue <em>Glue</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Glue</em>' reference.
+	 * @param value the new value of the '<em>Glue</em>' containment reference.
 	 * @see #getGlue()
 	 * @generated
 	 */
